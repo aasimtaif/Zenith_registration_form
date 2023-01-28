@@ -1,7 +1,7 @@
 
 import './App.css';
 import Form from './Form';
-import UploadImage from './UploadImage';
+// import UploadImage from './UploadImage';
 // import materialUi  from './MaterialUi';
 function App() {
   return (
