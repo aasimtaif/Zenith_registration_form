@@ -2,7 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const teamModel = require('./models/data.model')
 const app = express();
-const port = 6000;
+const port = 7000;
+const cors = require('cors')
+
+
+app.use(cors())
 require('dotenv').config()
 
 const DB = process.env.DATABASE
@@ -17,7 +21,9 @@ mongoose.connect(DB).then(() => {
 app.post('/form', (req, res) => {
     teamModel(req.body).save().then(() => {
         console.log("Saved")
-    }).catch(err => console.log(err, "error"))
+        res.send("hello postman")
+
+    }).catch(err => console.log(err.messege, "error"))
 
     res.send("hello postman")
     console.log(req.body)
