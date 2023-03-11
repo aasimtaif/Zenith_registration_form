@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import sportData from "./Sports"
+import React, { useState } from 'react'
+import sportData from "../SportData/Sports"
 import axios from "axios"
-import { Textarea, Input} from '@mui/joy';
-import Teams from './component/Teams';
+import { Textarea, Input } from '@mui/joy';
+import { Link } from "react-router-dom";
+
 import '../App';
 
 
 const URL = "http://localhost:7000"
-function App() {
-    const [input, setInput] = useState({});
+function Form() {
+
+    const [input, setInput] = useState();
     const [fee, setFee] = useState(0)
-
-
-
-
-
-
+    const [messege, setMessege] = useState();
     console.log(input, fee)
 
     const handleInput = (e) => {
@@ -26,10 +23,15 @@ function App() {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        if (!input?.college_name || !input?.college_location || !input?.sport || !input?.captains_Phone_no || !input?.id_card || !input?.payment_screenshot) {
+            setMessege("complete the form BITCH")
+            return
+        }
         axios.post(`${URL}/form`, input)
             .then(res => { console.log("posted successfully", res) })
             .catch(err => { console.log("error", err.message) })
+        setMessege()
+
     }
     const conversion = (file) => {
         // setInput({...input ,[file.name]:file.files[0]})
@@ -45,19 +47,25 @@ function App() {
         reader.onload = () => resolve(reader.result)
         reader.onerror = (error) => reject(error)
     })
+
     return (
         <>
+            {messege &&
+                <h4 className='messege'>{messege}</h4>
+            }
             <div className='form'>
-                <form>
+                <form action='#'>
                     <label>College Name:
-                        <Input className="input" type="text" name='college_name' onChange={handleInput} />
+                        <Input required className="input" type="text" name='college_name' onChange={handleInput} />
                     </label>
                     <label>College Address:
-                        <Textarea className="input" minRows={3} placeholder="location..." size="sm" name='college_location' onChange={handleInput} />
+                        <Textarea required className="input" minRows={3} placeholder="location..." size="sm" name='college_location' onChange={handleInput} />
                     </label>
                     <label>
                         Sport:
-                        <select className='input' name="sport" onChange={handleInput} >
+                        <select required className='input' name="sport" onChange={handleInput} >
+                            <option > Select the sport </option>
+
                             {sportData?.map(sport => {
                                 return (
                                     <option value={sport.Name} key={sport.key}> {sport.Name}...  ₹{sport.Value}  </option>
@@ -66,21 +74,25 @@ function App() {
                         </select>
                     </label>
                     <br />
+                    <label>Captains Name:
+                        <Input required className="input" type="text" name='captains_name' onChange={handleInput} />
+                    </label>
                     <label> Captains Phone number
-                        <Input className="input" type="text" name='captains_Phone_no' onChange={handleInput} />
+                        <Input required className="input" type="text" name='captains_Phone_no' onChange={handleInput} />
                     </label>
                     <label>Captains College Id card:
-                        <input className="input" type="file" name='id_card' onChange={(e) => { conversion(e.target) }} />
+                        <input required className="input" type="file" name='id_card' onChange={(e) => { conversion(e.target) }} />
                     </label>
                     <label>Payment Screenshot:
-                        <input className="input" type="file" name='payment_screenshot' onChange={(e) => { conversion(e.target) }} />
+                        <input required className="input" type="file" name='payment_screenshot' onChange={(e) => { conversion(e.target) }} />
                     </label>
                     <div className='fees'>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Qrcode_wikipedia.jpg" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Qrcode_wikipedia.jpg" alt="QR code" />
                         {/* <h4></h4> */}
                     </div>
-
-                    < button className="submit" type='submit' onClick={handleSubmit}>submit</ button>
+                    <Link to="/">
+                        < button className="submit" type='submit' onClick={handleSubmit}>submit</ button>
+                    </Link>
                 </form>
             </div>
 
@@ -88,4 +100,4 @@ function App() {
     );
 }
 
-export default App;
+export default Form;

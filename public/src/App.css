@@ -5,7 +5,9 @@
   margin: 2rem auto;
   padding: 2rem;
   text-align: left  ;
-  background-color: antiquewhite;
+  background-color: rgb(186, 178, 178);
+border-radius: 15px;
+color: #fff;
 }
 input:focus{
 border-radius: 2px;
@@ -19,6 +21,7 @@ input {
   padding: 5px;
   border-radius: 2px;
   border: none;
+  
 
 }
 
@@ -66,4 +69,14 @@ text-align: center;
 img{
   width: 10rem;
 padding-bottom: 0;
+}
+.messege{
+  margin: auto;
+  margin-top: 5px;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: rgb(236, 82, 82);
+  opacity: 0.8;
+  text-align: center;
+  width: max-content;
 }

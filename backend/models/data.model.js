@@ -6,6 +6,8 @@ const teamSchema = new mongoose.Schema({
     captains_Phone_no: String,
     payment_screenshot: String,
     id_card: String,
+    captains_name: String,
+
 })
 
 const teamModel = mongoose.model('Team', teamSchema)
