@@ -7,7 +7,7 @@ import { Select, Textarea, Input, Option } from '@mui/joy';
 import './App.css';
 
 
-const postURL = "http://localhost:7000/form"
+const postURL = "http://localhost:7000"
 function App() {
   const [input, setInput] = useState({});
   const [fee, setFee] = useState(0)
@@ -23,7 +23,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post(postURL, input)
+    axios.post(`${postURL}/form`, input)
       .then(res => { console.log("posted successfully", res) })
       .catch(err => { console.log("error", err.message) })
   }
