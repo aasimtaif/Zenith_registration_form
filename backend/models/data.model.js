@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 const teamSchema = new mongoose.Schema({
-    college_name:String,
-    college_location:String,
-    sport:String,
-    captains_Phone_no:String,
+    college_name: String,
+    college_location: String,
+    sport: String,
+    captains_Phone_no: String,
+    payment_screenshot: String,
+    id_card: String,
 })
 
 const teamModel = mongoose.model('Team', teamSchema)
@@ -16,5 +18,3 @@ module.exports = teamModel
 // captains_Phone_no:Number,
 // captains_name:String,
 // captains_email:String,
-// payment_screenshot:String,
-// id_card:String
