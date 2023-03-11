@@ -23,7 +23,7 @@ app.post('/form', (req, res) => {
         console.log("Saved")
         res.send("hello postman")
 
-    }).catch(err => console.log(err.messege, "error"))
+    }).catch(err => console.log(err, "error"))
 
     res.send("hello postman")
     console.log(req.body)

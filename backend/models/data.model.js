@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 const teamSchema = new mongoose.Schema({
     college_name:String,
     college_location:String,
+    sport:String,
+    captains_Phone_no:String,
 })
 
 const teamModel = mongoose.model('Team', teamSchema)

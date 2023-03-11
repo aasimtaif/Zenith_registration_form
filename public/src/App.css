@@ -1,7 +1,69 @@
-.form{
+.form {
   display: flex;
   flex-direction: column;
-  width:min-content;
-  margin:2rem auto ;
+  width: min-content;
+  margin: 2rem auto;
   padding: 2rem;
+  text-align: left  ;
+  background-color: antiquewhite;
+}
+input:focus{
+border-radius: 2px;
+border-top: none;
+}
+input {
+  font-size:xx-small;
+  width: 15rem;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  border-radius: 2px;
+  border: none;
+
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #596887;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #414c5f;
+}
+
+.input{
+  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+}
+.submit{
+font-size: small;
+margin-left: auto ;
+text-align: center;
+  border: none;
+  background: #596887;
+  color: #fff;
+  padding: 2%;
+  width: 100%;
+  border-radius: 5px;
+
+}
+
+.submit:hover{
+  background: #414c5f;
+}
+
+.fees{
+  padding-top: 2rem;
+  margin-left: 1rem;
+  text-align: center;
+}
+img{
+  width: 10rem;
+padding-bottom: 0;
 }
