@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import sportData from "../SportData/Sports"
 import axios from "axios"
-import { Textarea, Input } from '@mui/joy';
+
+import { Select, Option, Textarea, Input } from '@mui/joy';
 import { Link } from "react-router-dom";
 
-import '../App';
+import '../App.css';
 
 
 const URL = "http://localhost:7000"
@@ -33,6 +34,11 @@ function Form() {
         setMessege()
 
     }
+    const handleSport =(name,Fee)=>{
+        setInput({ ...input, "sport": name })
+        setFee(Fee)
+        console.log(name,Fee)
+    }
     const conversion = (file) => {
         // setInput({...input ,[file.name]:file.files[0]})
         toBase64(file.files[0]).then(res => {
@@ -56,39 +62,43 @@ function Form() {
             <div className='form'>
                 <form action='#'>
                     <label>College Name:
-                        <Input required className="input" type="text" name='college_name' onChange={handleInput} />
                     </label>
+                    <Textarea minRows={2} required placeholder="Full name plz ..." className="input" type="text" name='college_name' onChange={handleInput} />
                     <label>College Address:
-                        <Textarea required className="input" minRows={3} placeholder="location..." size="sm" name='college_location' onChange={handleInput} />
+                        <Textarea required className="input" minRows={3} placeholder="college location..." size="sm" name='college_location' onChange={handleInput} />
                     </label>
                     <label>
                         Sport:
-                        <select required className='input' name="sport" onChange={handleInput} >
-                            <option > Select the sport </option>
+                        <Select  required className='input' name="sport" >
+                            
 
                             {sportData?.map(sport => {
                                 return (
-                                    <option value={sport.Name} key={sport.key}> {sport.Name}...  ₹{sport.Value}  </option>
+
+                                    <Option value={sport.Name} onClick={() => handleSport(sport.Name,sport.Value)} key={sport.key}>  {sport.Name}...  </Option>
+
                                 )
                             })}
-                        </select>
+                        </Select>
                     </label>
                     <br />
                     <label>Captains Name:
                         <Input required className="input" type="text" name='captains_name' onChange={handleInput} />
                     </label>
                     <label> Captains Phone number
-                        <Input required className="input" type="text" name='captains_Phone_no' onChange={handleInput} />
+                        <Input required className="input" type="text" inputMode="numeric" name='captains_Phone_no' onChange={handleInput} />
                     </label>
-                    <label>Captains College Id card:
-                        <input required className="input" type="file" name='id_card' onChange={(e) => { conversion(e.target) }} />
-                    </label>
-                    <label>Payment Screenshot:
-                        <input required className="input" type="file" name='payment_screenshot' onChange={(e) => { conversion(e.target) }} />
-                    </label>
+                    <div className='images'>
+                        <label>Captains College Id card:
+                            <input required  accept="image/*" className="input" type="file" name='id_card' onChange={(e) => { conversion(e.target) }} />
+                        </label>
+                        <label>Payment Screenshot:
+                            <input required accept="image/*" className="input" type="file" name='payment_screenshot' onChange={(e) => { conversion(e.target) }} />
+                        </label>
+                    </div>
                     <div className='fees'>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Qrcode_wikipedia.jpg" alt="QR code" />
-                        {/* <h4></h4> */}
+                        <h2>₹{fee}</h2>
                     </div>
                     <Link to="/">
                         < button className="submit" type='submit' onClick={handleSubmit}>submit</ button>

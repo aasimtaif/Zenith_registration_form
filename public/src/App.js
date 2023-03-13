@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { Routes , Route} from 'react-router-dom'
 import './App.css';
-import { Form,Teams } from './component';
+import { Form,Teams,Images } from './component';
 
 
 const URL = "http://localhost:7000"
@@ -26,6 +26,8 @@ console.log(data)
 <Routes>
   <Route path='/' element={<Form />}/>
   <Route path='/admin' element={<Teams data = {data}/>}/>
+  <Route path='/admin/images/:teamId' element={<Images  data={data}/>}/>
+
 
 </Routes>
 

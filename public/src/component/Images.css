@@ -1,0 +1,10 @@
+.admin_dashboard_images{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+.img{
+    width: 120vh;
+  }

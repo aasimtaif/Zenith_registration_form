@@ -1,20 +1,22 @@
 .form {
+  font-size:1.3rem;
+  font-weight: 800;
   display: flex;
   flex-direction: column;
-  width: min-content;
+  width:fit-content;
   margin: 2rem auto;
   padding: 2rem;
   text-align: left  ;
-  background-color: rgb(186, 178, 178);
+  background-color: rgba(13, 13, 13, 0.435);
 border-radius: 15px;
-color: #fff;
+color: #171616;
 }
 input:focus{
 border-radius: 2px;
 border-top: none;
 }
 input {
-  font-size:xx-small;
+  font-size:small;
   width: 15rem;
   max-width: 100%;
   color: #444;
@@ -32,6 +34,8 @@ input[type="file"]::file-selector-button {
   padding: 10px 20px;
   border-radius: 5px;
   color: #fff;
+  font-weight: 800;
+
   cursor: pointer;
   transition: background 0.2s ease-in-out;
 }
@@ -62,14 +66,17 @@ text-align: center;
 }
 
 .fees{
-  padding-top: 2rem;
+  padding: 2rem;
   margin-left: 1rem;
   text-align: center;
 }
-img{
-  width: 10rem;
-padding-bottom: 0;
+ h2{
+  padding-top: 0;
 }
+img{
+  border-radius: 1rem;
+}
+
 .messege{
   margin: auto;
   margin-top: 5px;
@@ -80,3 +87,8 @@ padding-bottom: 0;
   text-align: center;
   width: max-content;
 }
+.images{
+  display: flex;
+  flex-direction: column;
+}
+
