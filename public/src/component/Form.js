@@ -29,15 +29,15 @@ function Form() {
             return
         }
         axios.post(`${URL}/form`, input)
-            .then(res => { console.log("posted successfully", res) })
+            .then(res => { setMessege("Post successfully") })
             .catch(err => { console.log("error", err.message) })
         setMessege()
 
     }
-    const handleSport =(name,Fee)=>{
+    const handleSport = (name, Fee) => {
         setInput({ ...input, "sport": name })
         setFee(Fee)
-        console.log(name,Fee)
+        console.log(name, Fee)
     }
     const conversion = (file) => {
         // setInput({...input ,[file.name]:file.files[0]})
@@ -69,13 +69,13 @@ function Form() {
                     </label>
                     <label>
                         Sport:
-                        <Select  required className='input' name="sport" >
-                            
+                        <Select required className='input' name="sport" >
+
 
                             {sportData?.map(sport => {
                                 return (
 
-                                    <Option value={sport.Name} onClick={() => handleSport(sport.Name,sport.Value)} key={sport.key}>  {sport.Name}...  </Option>
+                                    <Option value={sport.Name} onClick={() => handleSport(sport.Name, sport.Value)} key={sport.key}>  {sport.Name}...  </Option>
 
                                 )
                             })}
@@ -88,18 +88,25 @@ function Form() {
                     <label> Captains Phone number
                         <Input required className="input" type="text" inputMode="numeric" name='captains_Phone_no' onChange={handleInput} />
                     </label>
+                    <label>Captains Email:
+                        <Input required className="input" type="email" name='captains_email' onChange={handleInput} />
+                    </label>
+                    <div className='fees'>
+                        <h2>Pay ₹{fee}</h2>
+                        <p>Scan this  QR to Pay</p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Qrcode_wikipedia.jpg" alt="QR code" />
+                        <p>OR</p>
+                        <h3>lorem5</h3>
+                    </div>
                     <div className='images'>
                         <label>Captains College Id card:
-                            <input required  accept="image/*" className="input" type="file" name='id_card' onChange={(e) => { conversion(e.target) }} />
+                            <input required accept="image/*" className="input" type="file" name='id_card' onChange={(e) => { conversion(e.target) }} />
                         </label>
                         <label>Payment Screenshot:
                             <input required accept="image/*" className="input" type="file" name='payment_screenshot' onChange={(e) => { conversion(e.target) }} />
                         </label>
                     </div>
-                    <div className='fees'>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Qrcode_wikipedia.jpg" alt="QR code" />
-                        <h2>₹{fee}</h2>
-                    </div>
+
                     <Link to="/">
                         < button className="submit" type='submit' onClick={handleSubmit}>submit</ button>
                     </Link>

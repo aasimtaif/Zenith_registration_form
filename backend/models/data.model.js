@@ -7,6 +7,8 @@ const teamSchema = new mongoose.Schema({
     payment_screenshot: String,
     id_card: String,
     captains_name: String,
+    captains_email: String,
+
 
 })
 

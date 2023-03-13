@@ -3,13 +3,16 @@
   font-weight: 800;
   display: flex;
   flex-direction: column;
-  width:fit-content;
+  width:max-content;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 3rem;
   text-align: left  ;
-  background-color: rgba(13, 13, 13, 0.435);
+  background-color: rgb(21, 25, 29);
+ 
 border-radius: 15px;
-color: #171616;
+color: #ffc800;
+/* border:1px solid #110101; */
+box-shadow: 0 4px 30px rgb(0 0 0 / 10%), inset 0 0 32px -11px rgb(140, 140, 140);
 }
 input:focus{
 border-radius: 2px;
@@ -19,7 +22,7 @@ input {
   font-size:small;
   width: 15rem;
   max-width: 100%;
-  color: #444;
+  color: #eae4e4;
   padding: 5px;
   border-radius: 2px;
   border: none;
@@ -30,10 +33,10 @@ input {
 input[type="file"]::file-selector-button {
   margin-right: 20px;
   border: none;
-  background: #596887;
+  background: #ffff;
   padding: 10px 20px;
   border-radius: 5px;
-  color: #fff;
+  color: #110101;
   font-weight: 800;
 
   cursor: pointer;
@@ -42,6 +45,7 @@ input[type="file"]::file-selector-button {
 
 input[type="file"]::file-selector-button:hover {
   background: #414c5f;
+  
 }
 
 .input{
@@ -49,12 +53,13 @@ input[type="file"]::file-selector-button:hover {
   margin-top: 0.2rem;
 }
 .submit{
-font-size: small;
+font-size: medium;
 margin-left: auto ;
 text-align: center;
   border: none;
-  background: #596887;
-  color: #fff;
+  background-color: #ffc800;
+font-weight: 800;
+  color: #000000;
   padding: 2%;
   width: 100%;
   border-radius: 5px;
@@ -66,7 +71,7 @@ text-align: center;
 }
 
 .fees{
-  padding: 2rem;
+  /* padding: 2rem; */
   margin-left: 1rem;
   text-align: center;
 }
@@ -75,6 +80,7 @@ text-align: center;
 }
 img{
   border-radius: 1rem;
+  width: 50%;
 }
 
 .messege{

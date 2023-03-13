@@ -9,9 +9,9 @@ function Teams({ data }) {
             <table>
                 <thead>
                     <tr>
+                        <th>Index</th>
                         <th>College Name</th>
                         <th>College Location</th>
-
                         <th>Sport</th>
                         <th>Captains name</th>
                         <th>Captains number</th>
@@ -21,7 +21,7 @@ function Teams({ data }) {
                 <tbody>
                     {data?.map((team, index) => {
                         return (<tr key={index}>
-
+<td>{index}</td>
                             <td>{team.college_name}</td>
                             <td>{team.college_location}</td>
 
